@@ -68,7 +68,6 @@ class TCPServer:
         while True:
             await asyncio.sleep(5)
             message = f"[{self.response_counter}] keepalive"
-            logging.info(message)
             if self.clients:
                 for writer in self.clients:
                     try:
