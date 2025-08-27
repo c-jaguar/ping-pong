@@ -1,0 +1,32 @@
+
+services:
+  server:
+    build: .
+    image: cxjaguar/test-build:test
+    ports:
+      - "8888:80"
+    environment:
+      APPLICATION_TYPE: server
+    network_mode: host
+
+  client_1:
+    image: cxjaguar/test-build:test
+    pull_policy: missing
+    ports:
+      - "8889:80"
+    environment:
+      APPLICATION_TYPE: client
+    depends_on:
+      - server
+    network_mode: host
+
+  client_2:
+    image: cxjaguar/test-build:test
+    pull_policy: missing
+    ports:
+      - "8890:80"
+    environment:
+      APPLICATION_TYPE: client
+    depends_on:
+      - server
+    network_mode: host

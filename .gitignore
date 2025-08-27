@@ -1,0 +1,6 @@
+*.txt
+logs/
+.ruff_cache/
+.idea/
+__pycache__/
+.git/
